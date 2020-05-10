@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <Form />
-    <Articles />
+    <Form @FormSent="getNews" />
+    <Articles :newsObj="newsObj" />
   </div>
 </template>
 
@@ -19,15 +19,32 @@ export default {
     };
   },
   mounted: function() {
-    this.getNews();
+    this.getNews({
+      search: "",
+      country: "Ukraine"
+    });
   },
   methods: {
-    getNews() {
+    getNews(obj = {}) {
+      let { search, country } = obj;
+      let countries = {
+        "United States": "us",
+        Ukraine: "ua"
+      };
       const xhr = new XMLHttpRequest();
       const apiKey = "6085543a03c1460b933f2b17e2a32b2b";
       const apiUrl = "https://newsapi.org/v2";
       // let category = "technology";
-      xhr.open("GET", `${apiUrl}/top-headlines?country=us&apiKey=${apiKey}`);
+      if (!search) {
+        xhr.open(
+          "GET",
+          `${apiUrl}/top-headlines?country=${countries[country] ||
+            "us"}&category=technology&apiKey=${apiKey}`
+        );
+      } else {
+        xhr.open("GET", `${apiUrl}/everything?q=${search}&apiKey=${apiKey}`);
+      }
+
       xhr.addEventListener("load", () => {
         const response = JSON.parse(xhr.response);
         console.log(response);
