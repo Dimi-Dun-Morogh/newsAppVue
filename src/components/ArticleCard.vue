@@ -61,6 +61,7 @@ export default {
   border-radius: 5px 5px 0 0;
 }
 .articleWrap {
+  background-color: #fff;
   box-shadow: 1px 1px 1px 1px #00000026;
   width: 450px;
   height: 330px;

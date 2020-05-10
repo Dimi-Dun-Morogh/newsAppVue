@@ -31,8 +31,8 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" class="form_button mr-auto mb-1" variant="info"
-          >Search</b-button
+        <b-button type="submit" class="form_button mr-auto mb-1" variant="info">
+          <b-icon icon="search"></b-icon> Search</b-button
         >
       </b-form>
     </div>
@@ -55,7 +55,8 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       this.$emit("FormSent", this.form);
-      alert(JSON.stringify(this.form));
+      //alert(JSON.stringify(this.form));
+      this.form.search = "";
     },
     onReset(evt) {
       evt.preventDefault();
@@ -74,6 +75,7 @@ export default {
 <style scoped>
 .form_wrap {
   box-shadow: 1px 1px 1px 1px #00000026;
+  background-color: #fff;
 }
 .form_button {
   display: block;
