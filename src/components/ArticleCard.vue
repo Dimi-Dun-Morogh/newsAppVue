@@ -43,9 +43,7 @@ export default {
       };
     }
   },
-  mounted: function() {
-    console.log(this.imgBg);
-  }
+  mounted: function() {}
 };
 </script>
 <style scoped>

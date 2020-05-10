@@ -18,6 +18,19 @@
           ></b-form-select>
         </b-form-group>
         <b-form-group
+          class="text-left text-secondary "
+          id="input-group-4"
+          label="Chose your Category:"
+          label-for="input-4"
+          label-class="mb-0 small"
+        >
+          <b-form-select
+            id="input-4"
+            v-model="form.category"
+            :options="categories"
+          ></b-form-select>
+        </b-form-group>
+        <b-form-group
           class="text-left text-secondary"
           id="input-group-2"
           label-for="input-2"
@@ -46,9 +59,22 @@ export default {
     return {
       form: {
         search: "",
-        country: "Ukraine"
+        country: "Ukraine",
+        category: ""
       },
-      countries: [{ text: "Ukraine", value: "Ukraine" }, "United States"]
+      countries: [
+        { text: "Ukraine", value: "Ukraine" },
+        "United States",
+        "Russia"
+      ],
+      categories: [
+        { text: "technology", value: "technology" },
+        "health",
+        "business",
+        "general",
+        "sports",
+        "entertainment"
+      ]
     };
   },
   methods: {
