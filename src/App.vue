@@ -33,34 +33,32 @@ export default {
     });
   },
   methods: {
-    getNews(obj = {}) {
+    async getNews(obj = {}) {
       let { search, country, category } = obj;
       let countries = {
         "United States": "us",
         Ukraine: "ua",
         Russia: "ru"
       };
-      const xhr = new XMLHttpRequest();
-      const apiKey = "6085543a03c1460b933f2b17e2a32b2b";
-      const apiUrl = "https://newsapi.org/v2";
-      this.spinnerVisible = true;
-      // let category = "technology";
-      if (!search) {
-        this.lastUrl = `${apiUrl}/top-headlines?country=${countries[country] ||
-          "us"}&category=${category}&apiKey=${apiKey}`;
-        xhr.open("GET", this.lastUrl);
-      } else {
-        this.lastUrl = `${apiUrl}/everything?q=${search}&apiKey=${apiKey}`;
-        xhr.open("GET", this.lastUrl);
-      }
+      try {
+        const apiKey = "6085543a03c1460b933f2b17e2a32b2b";
+        const apiUrl = "https://newsapi.org/v2";
+        this.spinnerVisible = true;
 
-      xhr.addEventListener("load", () => {
-        const response = JSON.parse(xhr.response);
-        console.log(response);
-        this.newsObj = response.articles;
+        if (!search) {
+          this.lastUrl = `${apiUrl}/top-headlines?country=${countries[
+            country
+          ] || "us"}&category=${category}&apiKey=${apiKey}`;
+        } else {
+          this.lastUrl = `${apiUrl}/everything?q=${search}&apiKey=${apiKey}`;
+        }
+        const response = await fetch(this.lastUrl);
+        const data = await response.json();
+        this.newsObj = data.articles;
         this.spinnerVisible = false;
-      });
-      xhr.send();
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };

@@ -32,10 +32,14 @@
 export default {
   name: "ArticleCard",
   props: ["article"],
+  data() {
+    return {};
+  },
+  methods: {},
   computed: {
     imgBg: function() {
       return {
-        background:
+        backgroundImage:
           this.article.urlToImage != null
             ? `url(${this.article.urlToImage})`
             : `linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(178,57,217,1) 72%, rgba(0,212,255,0.9724090319721639) 100%)`,
@@ -43,7 +47,9 @@ export default {
       };
     }
   },
-  mounted: function() {}
+  mounted: function() {
+    // this.imageOrSpinner()
+  }
 };
 </script>
 <style scoped>
@@ -54,7 +60,6 @@ export default {
 .img-card-wrap {
   width: 450px;
   height: 200px;
-  background-image: url();
   background-size: cover;
   border-radius: 5px 5px 0 0;
 }
