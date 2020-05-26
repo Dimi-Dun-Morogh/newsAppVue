@@ -42,7 +42,7 @@ export default {
       };
       try {
         const apiKey = "6085543a03c1460b933f2b17e2a32b2b";
-        const apiUrl = "https://newsapi.org/v2";
+        const apiUrl = "https://news-api-v2.herokuapp.com";
         this.spinnerVisible = true;
 
         if (!search) {
