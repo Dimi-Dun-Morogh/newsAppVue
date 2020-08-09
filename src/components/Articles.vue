@@ -1,6 +1,6 @@
 <template>
   <div class="container-lg  ml-auto mr-auto  mt-3">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center articlesWrap">
       <div
         class="col-sm-5 mb-3"
         v-for="(article, index) in newsObj"
@@ -20,3 +20,10 @@ export default {
   props: ["newsObj"]
 };
 </script>
+<style scoped>
+/* @media (max-width:1000px) {
+  .articlesWrap{
+    flex-direction:column;
+  }
+} */
+</style>

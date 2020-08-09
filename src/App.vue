@@ -3,8 +3,12 @@
     <Header />
     <Toaster :lastUrl="lastUrl" />
     <Form @FormSent="getNews" />
-    <div class="text-center" v-show="spinnerVisible">
-      <b-spinner label="Spinning"></b-spinner>
+    <div class="text-center spinner-wrap" v-show="spinnerVisible">
+      <b-spinner
+        label="Spinning"
+        style="width: 3rem; height: 3rem;"
+        type="grow"
+      ></b-spinner>
     </div>
     <Articles :newsObj="newsObj" />
   </div>
@@ -72,5 +76,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: #f9f9fa;
+}
+.spinner-wrap {
+  margin-top: 40px;
 }
 </style>

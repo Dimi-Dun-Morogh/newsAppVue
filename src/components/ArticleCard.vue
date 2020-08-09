@@ -1,18 +1,14 @@
 <template>
-  <div class="articleWrap ">
-    <div
-      class="
-  img-card-wrap"
-      :style="imgBg"
-    >
+  <div class="articleWrap">
+    <div class="img-card-wrap" :style="imgBg">
       <div class="title-overlay">
         <b-card-title class="pl-1">{{ article.title }}</b-card-title>
       </div>
 
       <!-- "
-  { background:`url(${article.urlToImage})`} -->
+      { background:`url(${article.urlToImage})`}-->
     </div>
-    <div class="d-flex flex-column mt-2 ">
+    <div class="d-flex flex-column mt-2">
       <div class="description">
         <p class="text-left pl-2">
           {{ article.description || "no description avalaible" }}
@@ -20,9 +16,7 @@
       </div>
 
       <div class="align-self-end mr-auto ml-1 mt-1">
-        <b-button :href="article.url" variant="info" class=""
-          >Read More</b-button
-        >
+        <b-button :href="article.url" variant="info" class>Read More</b-button>
       </div>
     </div>
   </div>
@@ -58,7 +52,8 @@ export default {
   height: 300px;
 } */
 .img-card-wrap {
-  width: 450px;
+  /* width: 450px; */
+  max-width: 100%;
   height: 200px;
   background-size: cover;
   border-radius: 5px 5px 0 0;
@@ -66,7 +61,8 @@ export default {
 .articleWrap {
   background-color: #fff;
   box-shadow: 1px 1px 1px 1px #00000026;
-  width: 450px;
+  /* width: 450px; */
+  max-width: 100%;
   height: 330px;
   border-radius: 5px;
   /* border: 1px solid #1a050575; */
@@ -81,4 +77,12 @@ export default {
   background-color: rgba(0, 0, 0, 0.459);
   border-radius: 5px 5px 0 0;
 }
+/* @media (max-width: 470px) {
+.articleWrap,.img-card-wrap{
+  width: 310px;
+  margin-left: auto;
+margin-right: auto;
+}
+
+} */
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="col-sm-4 ml-auto mr-auto d-flex flex-column form_wrap">
+  <div
+    class="col-sm-5 col-md-5 col-lg-4 ml-auto mr-auto d-flex flex-column form_wrap"
+  >
     <div class=" col-sm-11 mt-3 ml-auto mr-auto">
       <h1 class="display-4">Search News</h1>
       <b-form @submit="onSubmit" @reset="onReset" class="">
